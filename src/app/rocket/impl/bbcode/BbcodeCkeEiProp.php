@@ -1,6 +1,51 @@
 <?php
 namespace rocket\impl\bbcode;
 
-class BbcodeCkeEiProp {
+use rocket\impl\ei\component\prop\string\cke\CkeEiProp;
+use rocket\spec\ei\component\prop\indepenent\EiPropConfigurator;
+use rocket\impl\bbcode\conf\BbcodeCkeEiPropConfigurator;
+use rocket\impl\ei\component\prop\string\cke\model\CkeMag;
+use rocket\spec\ei\manage\util\model\Eiu;
+use n2n\web\dispatch\mag\Mag;
+use n2n\impl\web\ui\view\html\HtmlView;
+use rocket\spec\ei\EiPropPath;
+use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
+use Genert\BBCode\BBCode;
+
+class BbcodeCkeEiProp extends CkeEiProp {
 	
+	public function createEiPropConfigurator(): EiPropConfigurator {
+		return new BbcodeCkeEiPropConfigurator($this);
+	}
+	
+	public function isTableSupported() {
+		return false;
+	}
+	
+	public function createOutputUiComponent(HtmlView $view, Eiu $eiu) {
+		$value = $eiu->field()->getValue(EiPropPath::from($this));
+		
+		$ckeCss = null;
+		if (($ckeCssConfigLookupId = $this->getCkeCssConfigLookupId()) !== null) {
+			$ckeCss = $view->lookup($ckeCssConfigLookupId);
+		}
+		
+		$linkProviders = array();
+		foreach ($this->getCkeLinkProviderLookupIds() as $linkProviderLookupId) {
+			$linkProviders[] = $view->lookup($linkProviderLookupId);
+		}
+		
+		$ckeHtmlBuidler = new CkeHtmlBuilder($view);
+		
+		$bbCode = new BBCode();
+		
+		return $ckeHtmlBuidler->getIframe($bbCode->convertFromHtml($value), $ckeCss, $linkProviders);
+	}
+	
+	public function createMag(Eiu $eiu): Mag {
+		$eiEntry = $eiu->entry()->getEiEntry();
+		return new CkeMag($this->getLabelLstr(), null, $this->isMandatory($eiu),
+				null, $this->getMaxlength(), $this->getMode(), true,
+				false, $this->getCkeLinkProviderLookupIds(), $this->getCkeCssConfigLookupId());
+	}
 }
