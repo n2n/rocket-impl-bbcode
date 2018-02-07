@@ -7,13 +7,14 @@
     "license": "GPL-3.0-or-later",
     "authors": [
         {
-            "name": "Thomas Jansen",
-            "email": "jansen@hnm.ch"
+            "name": "Thomas Günther",
+            "email": "guenther@hnm.ch"
         }
     ],
     "require": {
         "php": ">=7.0",
         "n2n/rocket": "master-dev",
+        "genert/bbcode" : "1.0.3",
         "n2n/n2n-composer-module-installer": "master-dev"
     },
     "autoload": {
