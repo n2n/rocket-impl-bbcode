@@ -1,5 +1,5 @@
 <?php
-namespace app\rocket\impl\bbcode\ui;
+namespace rocket\impl\bbcode\ui;
 
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use n2n\impl\web\ui\view\html\HtmlView;
