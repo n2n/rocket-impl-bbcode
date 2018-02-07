@@ -11,6 +11,7 @@ use n2n\impl\web\ui\view\html\HtmlView;
 use rocket\spec\ei\EiPropPath;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use Genert\BBCode\BBCode;
+use rocket\impl\bbcode\ui\BbcodeParser;
 
 class BbcodeCkeEiProp extends CkeEiProp {
 	
@@ -36,10 +37,9 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		}
 		
 		$ckeHtmlBuidler = new CkeHtmlBuilder($view);
+		$contentsHtml = (new BbcodeParser($view))->toHtml($value);
 		
-		$bbCode = new BBCode();
-		
-		return $ckeHtmlBuidler->getIframe($bbCode->convertFromHtml($value), $ckeCss, $linkProviders);
+		return $ckeHtmlBuidler->getIframe($contentsHtml, $ckeCss, $linkProviders);
 	}
 	
 	public function createMag(Eiu $eiu): Mag {
