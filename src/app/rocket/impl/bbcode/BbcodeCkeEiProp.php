@@ -10,7 +10,6 @@ use n2n\web\dispatch\mag\Mag;
 use n2n\impl\web\ui\view\html\HtmlView;
 use rocket\spec\ei\EiPropPath;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
-use Genert\BBCode\BBCode;
 use rocket\impl\bbcode\ui\BbcodeParser;
 
 class BbcodeCkeEiProp extends CkeEiProp {
@@ -37,7 +36,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		}
 		
 		$ckeHtmlBuidler = new CkeHtmlBuilder($view);
-		$contentsHtml = (new BbcodeParser($view))->toHtml($value);
+		$contentsHtml = (new BbcodeParser($view))->toHtml((string) $value);
 		
 		return $ckeHtmlBuidler->getIframe($contentsHtml, $ckeCss, $linkProviders);
 	}

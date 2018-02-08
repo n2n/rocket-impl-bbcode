@@ -3,7 +3,6 @@ namespace rocket\impl\bbcode\ui;
 
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use n2n\impl\web\ui\view\html\HtmlView;
-use rocket\impl\bbcode\ui\BbcodeParser;
 use n2n\l10n\N2nLocale;
 
 class BBcodeCkeHtmlBuilder extends CkeHtmlBuilder {
