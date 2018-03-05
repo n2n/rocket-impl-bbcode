@@ -2,13 +2,13 @@
 namespace rocket\impl\bbcode;
 
 use rocket\impl\ei\component\prop\string\cke\CkeEiProp;
-use rocket\spec\ei\component\prop\indepenent\EiPropConfigurator;
+use rocket\ei\component\prop\indepenent\EiPropConfigurator;
 use rocket\impl\bbcode\conf\BbcodeCkeEiPropConfigurator;
 use rocket\impl\ei\component\prop\string\cke\model\CkeMag;
-use rocket\spec\ei\manage\util\model\Eiu;
+use rocket\ei\manage\util\model\Eiu;
 use n2n\web\dispatch\mag\Mag;
 use n2n\impl\web\ui\view\html\HtmlView;
-use rocket\spec\ei\EiPropPath;
+use rocket\ei\EiPropPath;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use rocket\impl\bbcode\ui\BbcodeParser;
 
