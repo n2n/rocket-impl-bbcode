@@ -5,7 +5,7 @@ use rocket\impl\ei\component\prop\string\cke\CkeEiProp;
 use rocket\ei\component\prop\indepenent\EiPropConfigurator;
 use rocket\impl\bbcode\conf\BbcodeCkeEiPropConfigurator;
 use rocket\impl\ei\component\prop\string\cke\model\CkeMag;
-use rocket\ei\util\model\Eiu;
+use rocket\ei\util\Eiu;
 use n2n\web\dispatch\mag\Mag;
 use n2n\impl\web\ui\view\html\HtmlView;
 use rocket\ei\EiPropPath;
