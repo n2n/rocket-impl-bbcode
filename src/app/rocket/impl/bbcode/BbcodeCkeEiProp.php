@@ -22,7 +22,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		return false;
 	}
 	
-	public function createOutputUiComponent(HtmlView $view, Eiu $eiu) {
+	public function createUiComponent(HtmlView $view, Eiu $eiu) {
 		$value = $eiu->field()->getValue(EiPropPath::from($this));
 		
 		$ckeCss = null;
