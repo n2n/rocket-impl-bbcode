@@ -42,7 +42,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 	}
 	
 	public function createMag(Eiu $eiu): Mag {
-		$eiEntry = $eiu->entry()->getEiEntry();
+// 		$eiEntry = $eiu->entry()->getEiEntry();
 		return new CkeMag($this->getLabelLstr(), null, $this->isMandatory($eiu),
 				null, $this->getMaxlength(), $this->getMode(), true,
 				false, $this->getCkeLinkProviderLookupIds(), $this->getCkeCssConfigLookupId());
