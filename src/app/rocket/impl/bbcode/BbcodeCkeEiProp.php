@@ -6,11 +6,10 @@ use rocket\ei\component\prop\indepenent\EiPropConfigurator;
 use rocket\impl\bbcode\conf\BbcodeCkeEiPropConfigurator;
 use rocket\impl\ei\component\prop\string\cke\model\CkeMag;
 use rocket\ei\util\Eiu;
-use n2n\web\dispatch\mag\Mag;
-use n2n\impl\web\ui\view\html\HtmlView;
 use rocket\ei\EiPropPath;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use rocket\impl\bbcode\ui\BbcodeParser;
+use rocket\si\content\SiField;
 
 class BbcodeCkeEiProp extends CkeEiProp {
 	
@@ -22,7 +21,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		return false;
 	}
 	
-	public function createUiComponent(HtmlView $view, Eiu $eiu) {
+	public function createOutSiField(Eiu $eiu): SiField {
 		$value = $eiu->field()->getValue(EiPropPath::from($this));
 		
 		$ckeCss = null;
@@ -41,7 +40,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		return $ckeHtmlBuidler->getIframe($contentsHtml, $ckeCss, $linkProviders);
 	}
 	
-	public function createMag(Eiu $eiu): Mag {
+	public function createInSiField(Eiu $eiu): SiField {
 // 		$eiEntry = $eiu->entry()->getEiEntry();
 		return new CkeMag($this->getLabelLstr(), null, $this->isMandatory($eiu),
 				null, $this->getMaxlength(), $this->getMode(), true,
