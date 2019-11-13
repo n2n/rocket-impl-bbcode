@@ -7,7 +7,7 @@ use n2n\web\dispatch\mag\MagDispatchable;
 
 class BbcodeCkeEiPropConfigurator extends CkeEiPropConfigurator {
 	
-	public function createMagDispatchable(N2nContext $n2nContext): MagDispatchable {
+	public function mag(Eiu $eiu, DataSet $dataSet, MagCollection $magCollection) {
 		$magDispatchable = parent::createMagDispatchable($n2nContext);
 		$magCollection = $magDispatchable->getMagCollection();
 		
