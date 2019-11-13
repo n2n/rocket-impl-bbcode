@@ -1,18 +1,21 @@
 <?php
 namespace rocket\impl\bbcode\conf;
 
-use rocket\impl\ei\component\prop\string\cke\conf\CkeEiPropConfigurator;
-use n2n\core\container\N2nContext;
-use n2n\web\dispatch\mag\MagDispatchable;
+use n2n\util\type\attrs\DataSet;
+use n2n\web\dispatch\mag\MagCollection;
+use rocket\ei\util\Eiu;
+use rocket\impl\ei\component\prop\adapter\config\ConfigAdaption;
 
-class BbcodeCkeEiPropConfigurator extends CkeEiPropConfigurator {
+class BbcodeCkeEiPropConfigurator extends ConfigAdaption {
 	
-	public function createMagDispatchable(N2nContext $n2nContext): MagDispatchable {
-		$magDispatchable = parent::createMagDispatchable($n2nContext);
-		$magCollection = $magDispatchable->getMagCollection();
-		
+	public function mag(Eiu $eiu, DataSet $dataSet, MagCollection $magCollection) {
 		$magCollection->removeMagByPropertyName(self::PROP_TABLES_SUPPORTED_KEY);
-		
-		return $magDispatchable;
 	}
+
+	public function save(Eiu $eiu, MagCollection $magCollection, DataSet $dataSet) {
+	}
+
+	public function setup(Eiu $eiu, DataSet $dataSet) {
+	}
+
 }
