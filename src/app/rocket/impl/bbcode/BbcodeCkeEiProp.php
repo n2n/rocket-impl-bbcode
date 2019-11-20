@@ -2,8 +2,7 @@
 namespace rocket\impl\bbcode;
 
 use rocket\impl\ei\component\prop\string\cke\CkeEiProp;
-use rocket\ei\component\prop\indepenent\EiPropConfigurator;
-use rocket\impl\bbcode\conf\BbcodeCkeEiPropConfigurator;
+use rocket\impl\bbcode\conf\BbcodeCkeConfig;
 use rocket\impl\ei\component\prop\string\cke\model\CkeMag;
 use rocket\ei\util\Eiu;
 use rocket\ei\EiPropPath;
@@ -13,8 +12,16 @@ use rocket\si\content\SiField;
 
 class BbcodeCkeEiProp extends CkeEiProp {
 	
-	public function createEiPropConfigurator(): EiPropConfigurator {
-		return new BbcodeCkeEiPropConfigurator($this);
+	private $bbcodeCkeConfig;
+	
+	function __construct() {
+		parent::__construct();
+		
+		$this->bbcodeCkeConfig = new BbcodeCkeConfig($this);
+	}
+	
+	public function prepare() {
+		$this->getConfigurator()->addAdaption($this->bbcodeCkeConfig);
 	}
 	
 	public function isTableSupported() {
