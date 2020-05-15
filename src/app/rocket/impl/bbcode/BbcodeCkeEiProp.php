@@ -14,9 +14,9 @@ use rocket\impl\bbcode\ui\BbcodeParser;
 
 class BbcodeCkeEiProp extends CkeEiProp {
 	
-	public function createEiPropConfigurator(): EiPropConfigurator {
-		return new BbcodeCkeEiPropConfigurator($this);
-	}
+// 	public function createEiPropConfigurator(): EiPropConfigurator {
+// 		return new BbcodeCkeEiPropConfigurator($this);
+// 	}
 	
 	public function isTableSupported() {
 		return false;
