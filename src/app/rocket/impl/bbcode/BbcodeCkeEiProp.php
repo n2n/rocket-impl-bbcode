@@ -28,7 +28,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		return false;
 	}
 	
-	public function createOutSiField(Eiu $eiu): SiField {
+	function createOutEifGuiField(Eiu $eiu): EifGuiField {
 		$value = $eiu->field()->getValue(EiPropPath::from($this));
 		
 		$ckeCss = null;
@@ -47,7 +47,7 @@ class BbcodeCkeEiProp extends CkeEiProp {
 		return $ckeHtmlBuidler->getIframe($contentsHtml, $ckeCss, $linkProviders);
 	}
 	
-	public function createInSiField(Eiu $eiu): SiField {
+	public function createInEifGuiField(Eiu $eiu): EifGuiField {
 // 		$eiEntry = $eiu->entry()->getEiEntry();
 		return new CkeMag($this->getLabelLstr(), null, $this->isMandatory($eiu),
 				null, $this->getMaxlength(), $this->getMode(), true,
