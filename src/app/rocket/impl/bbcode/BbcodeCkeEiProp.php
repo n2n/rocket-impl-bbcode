@@ -9,6 +9,7 @@ use rocket\ei\EiPropPath;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use rocket\impl\bbcode\ui\BbcodeParser;
 use rocket\si\content\SiField;
+use rocket\ei\util\factory\EifGuiField;
 
 class BbcodeCkeEiProp extends CkeEiProp {
 	
