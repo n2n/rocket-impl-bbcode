@@ -20,7 +20,6 @@
 		"vendor-dir" : "src/vendor"
 	},
 	"require" : {
-		"php" : ">=7.0",
 		"n2n/rocket" : "^2.0.16",
 		"genert/bbcode" : "1.0.3",
 		"n2n/n2n-composer-module-installer" : "^7.1.3"
