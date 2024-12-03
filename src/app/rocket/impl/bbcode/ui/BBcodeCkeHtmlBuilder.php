@@ -13,7 +13,7 @@ class BBcodeCkeHtmlBuilder extends CkeHtmlBuilder {
 		$this->bbcodeParser = new BbcodeParser($view);
 	}
 	
-	public function getOut(string $contentsBbcode, N2nLocale $n2nLocale = null) {
+	public function getOut(string $contentsBbcode, ?N2nLocale $n2nLocale = null) {
 		return parent::getOut($this->bbcodeParser->toHtml($contentsBbcode), $n2nLocale);
 	}
 }

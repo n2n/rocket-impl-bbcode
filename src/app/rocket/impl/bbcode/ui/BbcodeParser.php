@@ -13,7 +13,7 @@ class BbcodeParser {
 		$this->view = $view;
 	}
 	
-	public function toHtml(string $bbcode = null) {
+	public function toHtml(?string $bbcode = null) {
 		if (empty($bbcode)) return (string) $bbcode;
 		
 		return $this->bbcode->convertToHtml($this->view->getHtmlBuilder()->getEsc($bbcode));
